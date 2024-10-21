@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column; /* Changed to column to stack items vertically */
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.turn-indicator {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #444;
+}
+
+.info-panel {
+  margin-top: 20px;
+}

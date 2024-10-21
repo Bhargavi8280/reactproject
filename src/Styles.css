@@ -1,0 +1,111 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 20px;
+}
+
+.app {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(8, 60px);
+  grid-template-rows: repeat(8, 60px);
+  border: 5px solid #333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.square {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+.square:nth-child(odd) {
+  background-color: #eee;
+}
+
+.square:nth-child(even) {
+  background-color: #ccc;
+}
+
+.square:hover {
+  background-color: rgba(255, 255, 0, 0.3); /* Highlight on hover */
+}
+
+.highlight {
+  background-color: rgba(255, 255, 0, 0.7); /* Highlight selected square */
+}
+
+.square-checkbox {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+  transform: scale(1.2); /* Scale checkbox for better visibility */
+  z-index: 1; /* Ensure checkbox is above other elements */
+}
+
+.piece {
+  font-size: 2.5em; /* Increase size for better visibility */
+  transition: transform 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.piece:hover {
+  transform: scale(1.2); /* Slightly enlarge on hover */
+}
+
+.timer {
+  margin: 20px;
+  font-size: 1.5em;
+  padding: 10px;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.move-list {
+  margin-top: 20px;
+  text-align: left;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.move-list div {
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+}
+
+.move-list div:last-child {
+  border-bottom: none; /* Remove last border */
+}
