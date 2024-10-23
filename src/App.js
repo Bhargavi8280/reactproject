@@ -3,6 +3,7 @@ import Board from "./Board";
 import Timer from "./Timer";
 import MoveList from "./MoveList";
 import "./App.css";
+import "./Styles.css";
 
 const initialBoard = [
   ["r", "n", "b", "q", "k", "b", "n", "r"], // Black pieces
@@ -21,8 +22,7 @@ function App() {
   const [moveList, setMoveList] = useState([]);
   const [whiteTime, setWhiteTime] = useState(600); // 10 minutes in seconds
   const [blackTime, setBlackTime] = useState(600);
-  const [selectedPiece, setSelectedPiece] = useState(null);
-  const [selectedPos, setSelectedPos] = useState(null); // New state to track selected position
+  const [selectedPos, setSelectedPos] = useState(null); // Track selected position
   const [timerId, setTimerId] = useState(null); // To store interval ID
 
   useEffect(() => {
@@ -40,7 +40,7 @@ function App() {
 
     // Clear the interval when component unmounts or when player changes
     return () => clearInterval(timerId);
-  }, [currentPlayer]);
+  }, [currentPlayer, timerId]); // Include timerId as a dependency
 
   // Check if the piece belongs to the current player
   const isCorrectTurn = (piece) => {
@@ -60,7 +60,6 @@ function App() {
       handleMove(startPos, endPos);
     } else if (isCorrectTurn(piece)) {
       // Select the piece if it's the correct player's turn
-      setSelectedPiece(piece);
       setSelectedPos({ row, col });
     } else {
       alert(`It's ${currentPlayer === "white" ? "White's" : "Black's"} turn!`);
@@ -90,7 +89,6 @@ function App() {
 
     // Switch player after move
     setCurrentPlayer(currentPlayer === "white" ? "black" : "white");
-    setSelectedPiece(null); // Reset the selected piece
     setSelectedPos(null); // Reset the selected position
   };
 
@@ -142,3 +140,4 @@ function App() {
 }
 
 export default App;
+
